@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<title>结算</title>
+<link href="css/common.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<header id="header" role="banner">
+	<a class="icon icon-arrow-left" href="detail.html"></a>
+	<h1>结算</h1>
+    <a class="icon icon-home" href="detail.html"></a>
+</header>
+<main id="main" role="main">
+    <section>
+    	<div class="order-box">
+        	<div class="order-pic">
+                <img src="images/logo.png"/>
+            </div>
+            <div class="order-content">
+                <div class="content">完美空气净化机</div>
+                <div>
+                    <span class="name">规格</span>
+                    <span class="name">台</span>
+                </div>
+            </div>
+        </div>
+        <div class="price-box">
+        	<div class="mod_amount amount">
+                <span class="icon decrease"></span>
+                <input id='pd-num' type="number" max="999" min="0" value="1">
+                <span class="icon increase"></span>
+            </div>
+        	<span class="price">
+            	￥7000.00
+            </span>
+        </div>
+        <div class="ps-box">
+        	<div class="ps-title">选择您的配送地址：</div>
+            <div class="ps ps-address-choice">
+            	<div class="ad-title">珠海专卖店</div>
+                <div class="ad-detail">珠海市xxx区xxx道10号</div>
+            </div>
+            <div class="ps ps-address">
+            	<div class="ad-title">中山专卖店</div>
+                <div class="ad-detail">中山市xxx区xxx道10号</div>
+            </div>
+            
+            <div class="ps-title">填写新的配送地址：</div>
+            <div class="ps">
+            	<label>收件人：</label><input style="width:100%"/>
+                <label>联系电话：</label><input style="width:100%"/>
+            	<label>地址：</label><textarea style="width:100%"></textarea>
+            </div>
+        </div>
+        
+    </section>
+</main>
+<footer id="footer">
+    <a class="menu-box" href="success.html">
+        确认
+    </a>
+</footer>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function() {
+        $(".increase").on("click",function(){
+			$("#pd-num").val(parseInt($("#pd-num").val())+1);
+			$(".price").text("￥"+parseInt($("#pd-num").val())*7000+".00");
+		});
+		$(".decrease").on("click",function(){
+			if(parseInt($("#pd-num").val())>0){
+				$("#pd-num").val(parseInt($("#pd-num").val())-1);
+			}
+		});
+		
+		$(".ps").on("click",function(){
+			$(".ps").removeClass("ps-address-choice");
+			$(".ps").addClass("ps-address");
+			$(this).removeClass("ps-address");
+			$(this).addClass("ps-address-choice");
+		});
+    });
+
+</script>
+
+
+</body>
+</html>
